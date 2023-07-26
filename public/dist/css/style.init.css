@@ -166,3 +166,156 @@ div.dataTables_wrapper div.dataTables_processing {
     }
 }
 /*--end Map Api Custom--*/
+
+.slider-container {
+    max-width: 100%;
+    position: relative;
+}
+.slider-container .tns-ovh {
+    border-radius: 1.25rem;
+}
+.slider-container .my-slider img {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
+}
+.slider-container .my-slider {
+    position: relative;
+}
+.slider-container .my-slider .slider-item {
+    position: relative;
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+.slider-container .tns-nav {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+.slider-container .tns-nav button {
+    display: block;
+    outline: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--bs-gray-200);
+    margin: 0 0.15rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+}
+.slider-container .tns-nav button.tns-nav-active {
+    background-color: var(--bs-primary);
+    width: 1.25rem;
+    border-radius: 0.35rem;
+}
+.css-1x6s881 {
+    top: 50%;
+    position: absolute;
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    background-image: url(https://assets.tokopedia.net/assets-tokopedia-lite/v2/zeus/kratos/1ed8750c.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+    border-radius: 50%;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+    box-shadow: 0 1px 6px 0 rgba(49,53,59,0.12);
+    right: 0;
+    -webkit-transform: translate(50%,-50%) rotate(90deg);
+    -ms-transform: translate(50%,-50%) rotate(90deg);
+    transform: translate(50%,-50%) rotate(90deg);
+}
+
+.css-1hqp0og {
+    top: 50%;
+    position: absolute;
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    background-image: url(https://assets.tokopedia.net/assets-tokopedia-lite/v2/zeus/kratos/1ed8750c.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+    border-radius: 50%;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+    box-shadow: 0 1px 6px 0 rgba(49,53,59,0.12);
+    left: 0;
+    -webkit-transform: translate(-50%,-50%) rotate(-90deg);
+    -ms-transform: translate(-50%,-50%) rotate(-90deg);
+    transform: translate(-50%,-50%) rotate(-90deg);
+}
+
+.carousel-nav > button {
+    opacity: 0;
+    width: 40px;
+    height: 40px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transition-timing-function: cubic-bezier(0.2,0.64,0.21,1);
+    transition-timing-function: cubic-bezier(0.2,0.64,0.21,1);
+}
+
+.css-bth2c6 {
+    width: 0px;
+    cursor: pointer;
+    top: 0px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.css-9a4fvc {
+    width: 0px;
+    cursor: pointer;
+    top: 0px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+}
+
+.carousel-nav > button.prev {
+    left: 30px;
+}
+
+.carousel-nav > button.next {
+    right: 30px;
+}
+
+.carousel-nav > button:hover {
+    width: 44px;
+    height: 44px;
+}
+
+.slider-container:hover > .carousel-nav > button {
+    opacity: 1;
+}
+
+.slider-container:hover > .carousel-nav > button.prev {
+    left: 0;
+}
+
+.slider-container:hover > .carousel-nav > button.next {
+    right: 0;
+}
