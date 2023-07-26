@@ -11,8 +11,21 @@ routerApp.config(function ($locationProvider, $stateProvider, $urlRouterProvider
 		url: '/',
 		templateUrl: 'home',
 		onEnter: function ($window, $http) {
+            $http.get(base_url + 'ajax_getdatapkb/').then(function (response) {
+				//console.log(response.data.siteInfo);
+				$window.document.title = "Dashboard - " + response.data.nama_pkb;
+				removenavclass();
+				$('#berandaNavLi').addClass('selected');
+				$('#berandaNavA').addClass('active');
+
+				$('#pageBread-1').text('Dashboard');
+				$('#pageBread-2').text(response.data.nama_pkb);
+				$('#pageBread-3').text('Dashboard');
+				$('#pageBread-add').remove();
+
+				$('.tooltip').tooltip('dispose');
+			});
             $('#kt_app_toolbar').show(), $('#kt_app_wrapper .app-container.container-fluid').addClass('container-xxl').removeClass('container-fluid');
-            KTApp.createTinySliders();
 		}
 	})
 	.state('home', {
@@ -20,7 +33,6 @@ routerApp.config(function ($locationProvider, $stateProvider, $urlRouterProvider
 		templateUrl: 'home',
 		onEnter: function ($window, $http) {
             $('#kt_app_toolbar').show(), $('#kt_app_wrapper .app-container.container-fluid').addClass('container-xxl').removeClass('container-fluid');
-            KTApp.createTinySliders();
         }
 	})
     //Map Aset
