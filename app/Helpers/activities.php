@@ -1,8 +1,8 @@
 <?php
 
-// use App\Models\LogActivities;
+use App\Models\LogActivities;
 
-/* start:Log Activities *
+/* start:Log Activities */
 if (! function_exists('addToLog')) {
     function addToLog($desc) {
         $log = [];
@@ -15,7 +15,7 @@ if (! function_exists('addToLog')) {
         LogActivities::create($log);
     }
 }
-/* end:Log Activities *
+/* end:Log Activities */
 
 /* start:get User IP Addresss */
 if (! function_exists('getUserIp')) {
