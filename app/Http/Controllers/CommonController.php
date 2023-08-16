@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Traits\SiteCommon;
-// use App\Traits\UserSessionCommon;
+use App\Traits\UserSessionCommon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +15,7 @@ use Illuminate\Support\Str;
 class CommonController extends Controller
 {
     use SiteCommon;
-    // use UserSessionCommon;
+    use UserSessionCommon;
     /**
      * system_info
      *
