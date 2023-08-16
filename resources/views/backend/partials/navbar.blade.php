@@ -1,11 +1,11 @@
 <!--begin::Navbar-->
 <div class="app-navbar flex-shrink-0">
     <!--begin::User menu-->
-    <div class="app-navbar-item ms-3 ms-lg-5" id="kt_header_user_menu_toggle">
+    <div class="app-navbar-item ms-1 ms-md-4" id="kt_header_user_menu_toggle">
         <!--begin::Menu wrapper-->
-        <div class="cursor-pointer symbol symbol-circle symbol-35px symbol-md-45px"
-            data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-            data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" id="userThumb-accountMenu">
+        <div class="cursor-pointer symbol symbol-35px"
+            data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
+            data-kt-menu-placement="bottom-end" id="userThumb-accountMenu">
             <img src="{{ asset('dist/img/default-user-img.jpg') }}" alt="user-thumb" />
         </div>
         <!--begin::User account menu-->
