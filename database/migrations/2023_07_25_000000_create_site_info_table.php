@@ -22,9 +22,9 @@ return new class extends Migration
             // $table->text('thumb');
             $table->text('login_bg');
             $table->text('login_logo');
-            $table->text('frontend_logo');
-            $table->text('backend_logo');
-            $table->text('backend_logo_icon');
+            $table->text('head_logo');
+            $table->text('head_logo');
+            $table->text('head_logo_small');
             $table->text('copyright');
             $table->text('iframe_map')->nullable();
             $table->integer('user_updated')->nullable();
