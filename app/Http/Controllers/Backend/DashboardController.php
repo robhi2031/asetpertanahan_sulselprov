@@ -19,10 +19,11 @@ class DashboardController extends Controller
      */
     public function __construct() {
         $this->middleware('auth'); 
-    }
+    }    
     /**
-     * layout
+     * index
      *
+     * @param  mixed $request
      * @return void
      */
     public function index(Request $request)
@@ -32,10 +33,7 @@ class DashboardController extends Controller
         //Data WebInfo
         $data = array(
             'title' => $getSiteInfo->name,
-            'desc' => $getSiteInfo->description,
-            'keywords' => $getSiteInfo->keyword,
             'url' => url()->current(),
-            'thumb' => $getSiteInfo->url_frontendLogo,
             'app_version' => config('app.version'),
             'app_name' => $getSiteInfo->name,
             'user_session' => $getUserSession
@@ -46,20 +44,10 @@ class DashboardController extends Controller
         );
         //Data Source JS
         $data['js'] = array(
-            'dist/js/app.backend.init.js'
+            'dist/js/app.backend.init.js',
+            'dist/scripts/backend/main.init.js'
         );
 
-        return view('backend.layouts', compact('data'));
-    }
-    /**
-     * Beranda
-     *
-     * @return void
-     */
-    public function dashboard() {
-        $getUserSession = $this->get_userinfo(Auth::user()->username);
-
-        addToLog('Mengakses halaman Dashboard - ' .$getUserSession->role);
-        return view('backend.index');
+        return view('backend.index', compact('data'));
     }
 }
