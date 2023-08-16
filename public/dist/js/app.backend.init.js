@@ -9,10 +9,11 @@ const _loadSiteInfo = () => {
 		dataType: "JSON",
 		success: function (data) {
 			siteInfo = data.row;
-			let headerLogo = `<img alt="Logo" src="` +siteInfo.url_headLogoSmall+ `" class="h-35px d-lg-none" alt="small-logo" />
-			<img alt="Logo" src="` +siteInfo.url_headLogo+ `" class="h-45px d-none d-lg-inline app-sidebar-logo-default theme-light-show" alt="light-logo" />
-			<img alt="Logo" src="` +siteInfo.url_headLogoDark+ `" class="h-45px d-none d-lg-inline app-sidebar-logo-default theme-dark-show" alt="dark-logo" />`;
-			$('#headerLogo a').html(headerLogo);
+			let headerLogo = `<img src="` +siteInfo.url_headLogoDark+ `" class="h-40px app-sidebar-logo-default" alt="light-logo" />
+            <img src="` +siteInfo.url_headLogoSmall+ `" class="h-40px app-sidebar-logo-minimize" alt="small-logo" />`;
+            let mobileHeaderLogo = `<img src="` +siteInfo.url_headLogo+ `" class="h-30px" alt="Mobile Logo" />`;
+			$('#kt_app_sidebar_logo a').html(headerLogo);
+			$('#kt_app_header_container a.mobileHeaderLogo').html(mobileHeaderLogo);
             $('#item-breadCrumb').nextAll().remove();
 			$('#copyRight').html(siteInfo.copyright);
 		}, error: function (jqXHR, textStatus, errorThrown) {
