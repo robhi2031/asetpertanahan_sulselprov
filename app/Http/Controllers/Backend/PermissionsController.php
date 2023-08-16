@@ -32,9 +32,8 @@ class PermissionsController extends Controller
     public function index(Request $request)
     {
         $getSiteInfo = $this->get_siteinfo();
-
-        return dd($getSiteInfo);
-        // $getUserSession = Auth::user();
+        $getUserSession = Auth::user();
+        return dd($getUserSession->givePermissionsTo('create-tasks'));
         // //Data WebInfo
         // $data = array(
         //     'title' => 'Kelola Permissions site',
