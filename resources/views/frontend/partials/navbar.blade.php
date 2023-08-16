@@ -1,12 +1,17 @@
 <!--begin::Navbar-->
 <div class="app-navbar flex-shrink-0">
     <!--begin::Login Button-->
-    <div class="d-flex align-items-center mx-4">
-        <a href="{{ url('/app_login') }}" class="btn btn-sm btn-primary fw-bold">
+    <div class="d-flex align-items-center mx-2 mx-md-0">
+        <a href="{{ url('/auth') }}" class="btn btn-sm btn-primary fw-bold">
             <i class="ki-outline ki-entrance-left fs-3"></i> Login
         </a>
     </div>
     <!--end::Login Button-->
+    <div class="app-navbar-item d-lg-none mx-2" title="Show header menu">
+        <div class="btn btn-flex btn-icon btn-active-color-primary w-30px h-30px" id="kt_app_header_menu_toggle">
+            <i class="ki-outline ki-element-4 fs-1"></i>
+        </div>
+    </div>
     <!--begin::User menu--
     <div class="app-navbar-item ms-3 ms-lg-5" id="kt_header_user_menu_toggle">
         <!--begin::Menu wrapper--

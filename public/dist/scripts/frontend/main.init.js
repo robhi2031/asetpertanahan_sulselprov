@@ -18,6 +18,7 @@ var slider = tns({
     swipeAngle: false,
     navAsThumbnails: true
 });
+// Class Initialization
 jQuery(document).ready(function() {
 
 });

@@ -125,7 +125,7 @@ var KTLogin = function() {
 							showConfirmButton: false,
 							allowOutsideClick: false
 						}).then(function (result) {
-							$('#kt_sign_in').hide(), window.location = base_url+ 'app_admin';
+							$('#kt_sign_in').hide(), window.location = base_url+ 'app_admin/';
 						});
 					}else{
 						Swal.fire({title: "Ooops!", text: data.message, icon: "error", allowOutsideClick: false}).then(function (result) {

@@ -9,7 +9,7 @@
 <link href="{{ asset('/dist/plugins/pace/themes/blue/pace-theme-flash.css') }}" rel="stylesheet" />
 <!--end::Load Other css -->
 <!--begin::Custom Stylesheets Bundle-->
-<link href="{{ asset('/dist/css/style.backend.init.css') }}" rel="stylesheet" />
+<link href="{{ asset('/dist/css/style.login.backend.init.css') }}" rel="stylesheet" />
 <!--end::Custom Stylesheets Bundle-->
 <!-- Base Route JS -->
 <script src="{{ asset('/dist/js/base_route.js') }}"></script>

@@ -1,56 +1,26 @@
 "use strict";
-/*************************
-    ANGULAR ROUTER APP
-*************************/
-var routerApp = angular.module('routerApp', ['ui.router']);
-routerApp.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise('/');
-	$stateProvider
-	//Beranda
-	.state('/', {
-		url: '/',
-		templateUrl: 'home',
-		onEnter: function ($window, $http) {
-            $http.get(base_url + 'ajax_getdatapkb/').then(function (response) {
-				//console.log(response.data.siteInfo);
-				$window.document.title = "Dashboard - " + response.data.nama_pkb;
-				removenavclass();
-				$('#berandaNavLi').addClass('selected');
-				$('#berandaNavA').addClass('active');
-
-				$('#pageBread-1').text('Dashboard');
-				$('#pageBread-2').text(response.data.nama_pkb);
-				$('#pageBread-3').text('Dashboard');
-				$('#pageBread-add').remove();
-
-				$('.tooltip').tooltip('dispose');
-			});
-            $('#kt_app_toolbar').show(), $('#kt_app_wrapper .app-container.container-fluid').addClass('container-xxl').removeClass('container-fluid');
+// Class Definition
+var siteInfo;
+//Load Site Info
+const _loadSiteInfo = () => {
+	$.ajax({
+		url: base_url+ "api/site_info",
+		headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
+		type: "GET",
+		dataType: "JSON",
+		success: function (data) {
+			siteInfo = data.row;
+			let headerLogo = `<img alt="Logo" src="` +siteInfo.url_headLogoSmall+ `" class="h-35px d-lg-none" alt="small-logo" />
+			<img alt="Logo" src="` +siteInfo.url_headLogo+ `" class="h-20px h-lg-30px app-sidebar-logo-default theme-light-show" alt="light-logo" />
+			<img alt="Logo" src="` +siteInfo.url_headLogoDark+ `" class="h-20px h-lg-30px app-sidebar-logo-default theme-dark-show" alt="dark-logo" />`;
+			$('#headerLogo a').html(headerLogo);
+			$('#copyRight').html(siteInfo.copyright);
+		}, error: function (jqXHR, textStatus, errorThrown) {
+			console.log('Load data is error');
 		}
-	})
-	.state('home', {
-        url: '/home',
-		templateUrl: 'home',
-		onEnter: function ($window, $http) {
-            $('#kt_app_toolbar').show(), $('#kt_app_wrapper .app-container.container-fluid').addClass('container-xxl').removeClass('container-fluid');
-        }
-	})
-    //Map Aset
-    .state('/map_aset', {
-        url: '/map_aset',
-        templateUrl: 'map_aset',
-        onEnter: function ($window, $http) {
-            $('#kt_app_toolbar').hide(), $('#kt_app_wrapper .app-container.container-xxl').addClass('container-fluid').removeClass('container-xxl');
-        }
-    })
-	.state('404', {
-		url: '/404',
-		template: '404!!! page is missing'
 	});
-    //html5
-    // $locationProvider.html5Mode(true);
-    // $locationProvider.hashPrefix('');
+}
+// Class Initialization
+jQuery(document).ready(function() {
+    _loadSiteInfo();
 });
-/*************************
-    ANGULAR ROUTER APP END
-*************************/
