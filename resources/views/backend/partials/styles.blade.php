@@ -3,7 +3,11 @@
 <!--end::Fonts-->
 <!--begin::Vendor Stylesheets(used for this page only)-->
 @foreach ($data['css'] as $dt)
-    <link rel="stylesheet" href="{{ asset($dt) }}">
+    @if(str_contains($dt, 'https://'))
+        <link rel="stylesheet" href="{{ $dt }}">
+    @else
+        <link rel="stylesheet" href="{{ asset($dt) }}">
+    @endif
 @endforeach
 <!--end::Vendor Stylesheets-->
 <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
