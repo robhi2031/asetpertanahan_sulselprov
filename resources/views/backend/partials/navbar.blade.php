@@ -21,7 +21,7 @@
             <!--end::Menu separator-->
             <!--begin::Menu item-->
             <div class="menu-item px-5">
-                <a href="{{ url('/app_admin/#/my_profile?u='.$data['user_session']->username) }}" class="menu-link px-5">
+                <a href="{{ url('/app_admin/my_profile?u='.$data['user_session']->username) }}" class="menu-link px-5">
                     My Profile
                 </a>
             </div>
