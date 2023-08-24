@@ -8,7 +8,11 @@
 <!--end::Global Javascript Bundle-->
 <!--begin::Vendors Javascript(used for this page only)-->
 @foreach ($data['js'] as $dt)
-    <script src="{{ asset($dt) }}"></script>
+    @if(str_contains($dt, 'https://'))
+        <script src="{{ $dt }}"></script>
+    @else
+        <script src="{{ asset($dt) }}"></script>
+    @endif
 @endforeach
 <!--end::Vendors Javascript-->
 <!--end::Javascript-->
