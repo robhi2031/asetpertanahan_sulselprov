@@ -32,7 +32,7 @@ class DashboardController extends Controller
         $getUserSession = $this->get_userinfo(Auth::user()->username);
         //Data WebInfo
         $data = array(
-            'title' => $getSiteInfo->name,
+            'title' => 'Dashboard',
             'url' => url()->current(),
             'app_version' => config('app.version'),
             'app_name' => $getSiteInfo->name,
