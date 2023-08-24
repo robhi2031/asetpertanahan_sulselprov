@@ -15,9 +15,15 @@ return new class extends Migration
     {
         Schema::create('permissions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('fid_menu');
+            $table->foreign('fid_menu')->references('id')->on('menus_permissions')->onDelete('cascade');
             $table->string('name');
             $table->string('slug');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable()->useCurrentOnUpdate();
+
+            //PRIMARY KEYS
+            $table->primary(['id','fid_menu']);
         });
     }
 
