@@ -7,7 +7,7 @@
     <meta name="robots" content="index, follow, noodp, noydir" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>
-        {{ isset($data['title']) ? $data['title'] : 'Unknown'; }}
+        {{ isset($data['title']) ? $data['title'] : 'Unknown'; }} - {{ $data['app_name'] }}
     </title>
     <meta name="author" content="@RobhiTranzad" />
     <meta name="email" content="robhi.sanjaya@gmail.com" />
@@ -33,7 +33,7 @@
 <body id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true"
     data-kt-app-header-fixed-mobile="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true"
     data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true"
-    data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
+    data-kt-app-sidebar-push-footer="true" class="app-default">
     <!--begin::Theme mode setup on page load-->
     <script>
         var defaultThemeMode = "light";
@@ -67,7 +67,6 @@
                 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
                     <!--begin::Content wrapper-->
                     <div class="d-flex flex-column flex-column-fluid">
-                        @include('backend.partials.toolbar')
                         <!--begin::Content-->
                         <div id="kt_app_content" class="app-content flex-column-fluid">
                             <!--begin::Content container-->
