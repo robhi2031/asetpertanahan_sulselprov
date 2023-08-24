@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\MasterKabupatenKotaController;
 use App\Http\Controllers\Backend\PermissionsController;
+use App\Http\Controllers\Backend\RolesController;
 use App\Http\Controllers\Backend\UserProfileController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\FrontendController;
@@ -51,10 +53,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // App Admin
     Route::group(['prefix' => 'app_admin'], function () {
         Route::get('/', [DashboardController::class, 'index'])->name('backend_index');
-        Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-        Route::get('/my_profile', [UserProfileController::class,'index'])->name('user_profile');
+        // Route::get('/manage_kabupatenkota', [MasterKabupatenKotaController::class, 'index'])->name('manage_kabupatenkota');
         //If Single Role for Super Admin
         Route::group(['middleware' => 'role:super-admin'], function() {
+            Route::get('/manage_roles', [RolesController::class, 'index'])->name('manage_roles');
             Route::get('/manage_permissions', [PermissionsController::class, 'index'])->name('manage_permissions');
         });
         //If Single Role for Admin PIC
@@ -68,6 +70,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             // Route::get('/manage_users', [UsersController::class, 'index'])->name('manage_users');
             // Route::get('/users_activity', [UsersActivityController::class, 'index'])->name('users_activity');
             // Route::get('/{username}', [UserProfileController::class,'index'])->name('user_profile');
+            //Api Ajax App Auth
+            Route::group(['prefix' => 'api'], function () {
+                // Route::get('/user_info', [CommonController::class, 'user_info'])->name('user_info');
+            });
         });
     });
 
